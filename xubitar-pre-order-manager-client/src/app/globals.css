@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-text-primary: var(--color-text-primary);
+  --font-verdana: Verdana, sans-serif;
+}
+
+body {
+  font-family: var(--font-verdana);
+}
+
+:root {
+  --background: #f1f1f1;
+  --foreground: #fffff;
+  --color-text-primary: #2c2d2e;
+}

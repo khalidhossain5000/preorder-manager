@@ -1,0 +1,9 @@
+enum PreorderWhen {
+  REGARDLESS_OF_STOCK
+  OUT_OF_STOCK
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
