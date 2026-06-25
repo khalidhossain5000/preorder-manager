@@ -7,5 +7,6 @@ dotenv.config({
 
 export default {
     databaseUrl:process.env.DATABASE_URL,
-    port:process.env.PORT
+    port:process.env.PORT,
+    cors_url:process.env.CORS_URL
 }

@@ -1,12 +1,13 @@
 import express, { Request, Response } from "express"
 import cors from "cors"
 import preorderRoute from "./modules/preorder/route.preorder"
+import config from "./modules/config"
 const app=express()
 
 //default middleware
 app.use(cors({
     // origin:"https://xubitar-pre-order-manager.vercel.app",
-    origin:"http://localhost:3000",
+    origin:config.cors_url,
     credentials:true
 }))
 app.use(express.json())
