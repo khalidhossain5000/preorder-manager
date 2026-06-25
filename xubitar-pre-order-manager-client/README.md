@@ -23,11 +23,9 @@ Make sure the following are installed on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/preorder-manager.git
+git clone https://github.com/khalidhossain5000/preorder-manager.git
 cd preorder-manager
 ```
-
-> Replace `YOUR_USERNAME` with your actual GitHub username.
 
 ---
 
@@ -230,6 +228,26 @@ Base URL: `https://preorder-manager-chip.onrender.com`
 | `DELETE` | `https://preorder-manager-chip.onrender.com/delete/:id`                      |
 
 ---
+
+## Troubleshooting
+
+**Prisma client not found?**
+```bash
+npx prisma generate
+```
+
+**Database not created?**
+```bash
+npx prisma migrate deploy
+```
+
+**Port already in use?**
+Change the `PORT` value in the backend `.env` file and update `NEXT_PUBLIC_API_URL` in the frontend `.env` accordingly.
+
+**CORS error in browser?**
+Make sure the backend is running and the `NEXT_PUBLIC_API_URL` in the frontend `.env` matches the backend URL exactly.
+
+
 
 ## 📬 Contact
 
