@@ -28,8 +28,6 @@ git clone https://github.com/khalidhossain5000/preorder-manager.git
 cd preorder-manager
 ```
 
-> Replace `YOUR_USERNAME` with your actual GitHub username.
-
 ---
 
 ### 2. Backend Setup (`xubitar-pre-order-manager-server`)
@@ -49,9 +47,9 @@ npm install
 Create a `.env` file in the root of the server folder:
 
 ```env
-CORS_URL="https://xubitar-pre-order-manager.vercel.app"
+CORS_URL="http://localhost:3000"
 DATABASE_URL="file:./dev.db"
-PORT=9000
+PORT=5000
 ```
 
 **Run Prisma migrations and generate client:**
@@ -75,7 +73,7 @@ npx prisma db seed
 npm run dev
 ```
 
-The backend will be running at: `http://localhost:9000`
+The backend will be running at: `http://localhost:5000`
 
 **Optional — Open Prisma Studio to view/manage database:**
 
@@ -104,7 +102,7 @@ npm install
 Create a `.env.local` file in the root of the client folder:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:9000
+NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
 **Start the development server:**
@@ -193,7 +191,7 @@ preorder-manager/
 
 ## 🔌 API Endpoint Reference
 
-Base URL (Local): `http://localhost:9000`
+Base URL (Local): `http://localhost:5000`
 
 Base URL (Live): `https://preorder-manager-chip.onrender.com`
 
