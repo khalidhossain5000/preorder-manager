@@ -1,8 +1,9 @@
 # Preorder Manager
 
-A full-stack preorder management application project. It allows users to create, view, update, delete, filter, sort, and paginate preorders through a clean and responsive UI.
+A full-stack preorder management application built as a job assessment project. It allows users to create, view, update, delete, filter, sort, and paginate preorders through a clean and responsive UI.
 
 **Live Demo:**
+
 - 🌐 Frontend: [https://xubitar-pre-order-manager.vercel.app](https://xubitar-pre-order-manager.vercel.app)
 - 🚀 Backend API: [https://preorder-manager-chip.onrender.com](https://preorder-manager-chip.onrender.com)
 
@@ -23,9 +24,11 @@ Make sure the following are installed on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/khalidhossain5000/preorder-manager.git
+git clone https://github.com/YOUR_USERNAME/preorder-manager.git
 cd preorder-manager
 ```
+
+> Replace `YOUR_USERNAME` with your actual GitHub username.
 
 ---
 
@@ -46,8 +49,9 @@ npm install
 Create a `.env` file in the root of the server folder:
 
 ```env
+CORS_URL="https://xubitar-pre-order-manager.vercel.app"
 DATABASE_URL="file:./dev.db"
-PORT=5000
+PORT=9000
 ```
 
 **Run Prisma migrations and generate client:**
@@ -71,7 +75,7 @@ npx prisma db seed
 npm run dev
 ```
 
-The backend will be running at: `http://localhost:5000`
+The backend will be running at: `http://localhost:9000`
 
 **Optional — Open Prisma Studio to view/manage database:**
 
@@ -100,7 +104,7 @@ npm install
 Create a `.env.local` file in the root of the client folder:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:9000
 ```
 
 **Start the development server:**
@@ -163,12 +167,12 @@ preorder-manager/
 
 ## 🛠️ Tech Stack
 
-| Layer      | Technology                              |
-|------------|-----------------------------------------|
-| Frontend   | Next.js, React, Tailwind CSS            |
-| Backend    | Node.js, Express, TypeScript            |
-| Database   | SQLite (via Prisma ORM)                 |
-| Deployment | Vercel (frontend), Render (backend)     |
+| Layer      | Technology                          |
+| ---------- | ----------------------------------- |
+| Frontend   | Next.js, React, Tailwind CSS        |
+| Backend    | Node.js, Express, TypeScript        |
+| Database   | SQLite (via Prisma ORM)             |
+| Deployment | Vercel (frontend), Render (backend) |
 
 ---
 
@@ -189,28 +193,28 @@ preorder-manager/
 
 ## 🔌 API Endpoint Reference
 
-Base URL (Local): `http://localhost:5000`
+Base URL (Local): `http://localhost:9000`
 
 Base URL (Live): `https://preorder-manager-chip.onrender.com`
 
-| Method   | Endpoint                              | Description                        |
-|----------|---------------------------------------|------------------------------------|
-| `POST`   | `/create`                             | Create a new preorder              |
-| `GET`    | `/`                                   | Get all preorders (filter, sort, paginate) |
-| `GET`    | `/:id`                                | Get a single preorder by ID        |
-| `PATCH`  | `/update-status/:id/status`           | Toggle Active/Inactive status      |
-| `PUT`    | `/update-preorder/:id`               | Update a preorder by ID            |
-| `DELETE` | `/delete/:id`                         | Delete a preorder by ID            |
+| Method   | Endpoint                    | Description                                |
+| -------- | --------------------------- | ------------------------------------------ |
+| `POST`   | `/create`                   | Create a new preorder                      |
+| `GET`    | `/`                         | Get all preorders (filter, sort, paginate) |
+| `GET`    | `/:id`                      | Get a single preorder by ID                |
+| `PATCH`  | `/update-status/:id/status` | Toggle Active/Inactive status              |
+| `PUT`    | `/update-preorder/:id`      | Update a preorder by ID                    |
+| `DELETE` | `/delete/:id`               | Delete a preorder by ID                    |
 
 ### Query Parameters for `GET /`
 
-| Parameter  | Type     | Description                        |
-|------------|----------|------------------------------------|
-| `status`   | `string` | Filter by `active` or `inactive`   |
-| `sort`     | `string` | Field to sort by                   |
-| `order`    | `string` | `asc` or `desc`                    |
-| `page`     | `number` | Page number (default: `1`)         |
-| `limit`    | `number` | Items per page (default: `10`)     |
+| Parameter | Type     | Description                      |
+| --------- | -------- | -------------------------------- |
+| `status`  | `string` | Filter by `active` or `inactive` |
+| `sort`    | `string` | Field to sort by                 |
+| `order`   | `string` | `asc` or `desc`                  |
+| `page`    | `number` | Page number (default: `1`)       |
+| `limit`   | `number` | Items per page (default: `10`)   |
 
 ---
 
@@ -218,25 +222,27 @@ Base URL (Live): `https://preorder-manager-chip.onrender.com`
 
 Base URL: `https://preorder-manager-chip.onrender.com`
 
-| Method   | Full Endpoint                                                                 |
-|----------|-------------------------------------------------------------------------------|
-| `POST`   | `https://preorder-manager-chip.onrender.com/create`                          |
-| `GET`    | `https://preorder-manager-chip.onrender.com/?page=1&limit=10`                |
-| `GET`    | `https://preorder-manager-chip.onrender.com/:id`                             |
-| `PATCH`  | `https://preorder-manager-chip.onrender.com/update-status/:id/status`        |
-| `PUT`    | `https://preorder-manager-chip.onrender.com/update-preorder/:id`             |
-| `DELETE` | `https://preorder-manager-chip.onrender.com/delete/:id`                      |
+| Method   | Full Endpoint                                                         |
+| -------- | --------------------------------------------------------------------- |
+| `POST`   | `https://preorder-manager-chip.onrender.com/create`                   |
+| `GET`    | `https://preorder-manager-chip.onrender.com/?page=1&limit=10`         |
+| `GET`    | `https://preorder-manager-chip.onrender.com/:id`                      |
+| `PATCH`  | `https://preorder-manager-chip.onrender.com/update-status/:id/status` |
+| `PUT`    | `https://preorder-manager-chip.onrender.com/update-preorder/:id`      |
+| `DELETE` | `https://preorder-manager-chip.onrender.com/delete/:id`               |
 
 ---
 
 ## Troubleshooting
 
 **Prisma client not found?**
+
 ```bash
 npx prisma generate
 ```
 
 **Database not created?**
+
 ```bash
 npx prisma migrate deploy
 ```
@@ -247,7 +253,7 @@ Change the `PORT` value in the backend `.env` file and update `NEXT_PUBLIC_API_U
 **CORS error in browser?**
 Make sure the backend is running and the `NEXT_PUBLIC_API_URL` in the frontend `.env` matches the backend URL exactly.
 
-
+---
 
 ## 📬 Contact
 

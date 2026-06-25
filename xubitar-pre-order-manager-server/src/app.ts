@@ -10,6 +10,8 @@ app.use(cors({
     origin:config.cors_url,
     credentials:true
 }))
+
+console.log(config.cors_url,'cors url')
 app.use(express.json())
 
 //default hello world
