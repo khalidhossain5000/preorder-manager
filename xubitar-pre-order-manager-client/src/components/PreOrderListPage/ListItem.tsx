@@ -7,7 +7,7 @@ import DeleteConfirmDialog from "./DeleteAlert";
 import Link from "next/link";
 
 export interface Preorder {
-  id: number;
+  id: string;
   name: string;
   products: number;
   preOrderWhen: string;
@@ -19,9 +19,12 @@ export interface Preorder {
 type ListItemProps = {
   preorder: Preorder;
   refetch: () => void;
+  selected: boolean;
+    onSelect: (id: string, checked: boolean) => void;
+
 };
 
-const ListItem = ({ preorder, refetch }: ListItemProps) => {
+const ListItem = ({ preorder, refetch,selected,onSelect }: ListItemProps) => {
   const axiosInstance = useAxios();
   const [loading, setLoading] = useState(false);
 
@@ -77,11 +80,19 @@ const ListItem = ({ preorder, refetch }: ListItemProps) => {
 
   
   return (
-    <tr className="border-y border-[#dbdcdb] hover:bg-gray-50 transition-colors">
+   <tr
+  className={`border-y border-[#dbdcdb] transition-colors ${
+    selected
+      ? "bg-slate-200 shadow-sm"
+      : "hover:bg-gray-50"
+  }`}
+>
       {/* Checkbox */}
       <td className="py-3 pl-4 pr-2 w-10 ">
         <input
           type="checkbox"
+          checked={selected}
+            onChange={(e) => onSelect(preorder.id, e.target.checked)}
           className="w-4 h-4 rounded border-gray-300 accent-text-text-primary cursor-pointer"
         />
       </td>

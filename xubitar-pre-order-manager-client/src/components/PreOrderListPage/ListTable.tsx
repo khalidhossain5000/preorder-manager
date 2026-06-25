@@ -27,6 +27,9 @@ const ListTable = () => {
   const [selectedSort, setSelectedSort] = useState<SortField>("createdAt");
   const [selectedDirection, setSelectedDirection] =
     useState<SortDirection>("desc");
+    
+    //select row func
+    const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const [page, setPage] = useState(1);
   const limit = 8;
@@ -64,6 +67,11 @@ const ListTable = () => {
   });
 
   const preorders = preorderResponse?.data ?? [];
+  //to know current page preorder id for checkbox slect row
+  const currentPageIds = preorders.map((item) => item.id);
+const allSelected =currentPageIds.length > 0 && currentPageIds.every((id) => selectedIds.includes(id));
+
+  // current page selected checkbox func ends
   const totalPages = preorderResponse?.meta.totalPages ?? 1;
   const total = preorderResponse?.meta.total ?? 0;
 
@@ -82,6 +90,25 @@ const ListTable = () => {
     setPage(1);
   };
 
+  //row selection handler
+  const handleSelectAll = (checked: boolean) => {
+  if (checked) {
+    setSelectedIds(currentPageIds);
+  } else {
+    setSelectedIds([]);
+  }
+};
+
+
+const handleRowSelect = (id: string, checked: boolean) => {
+  if (checked) {
+    setSelectedIds((prev) => [...prev, id]);
+  } else {
+    setSelectedIds((prev) => prev.filter((item) => item !== id));
+  }
+};
+
+console.log(selectedIds,'this is selected id here')
   return (
     <div className="min-h-screen bg-[#efefef] p-8 max-w-6xl mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between mb-5">
@@ -144,6 +171,8 @@ const ListTable = () => {
                   <th className="font-verdana py-3 pl-4 pr-2 w-10 border-b border-[#dbdcdb]">
                     <input
                       type="checkbox"
+                       checked={allSelected}
+                         onChange={(e) => handleSelectAll(e.target.checked)}
                       className="w-4 h-4 rounded border-red-600 accent-black cursor-pointer"
                     />
                   </th>
@@ -173,7 +202,7 @@ const ListTable = () => {
 
               <tbody>
                 {preorders.map((preorder) => (
-                  <ListItem key={preorder.id} preorder={preorder} refetch={refetch}/>
+                  <ListItem key={preorder.id} preorder={preorder} refetch={refetch} selected={selectedIds.includes(preorder.id)}  onSelect={handleRowSelect}/>
                 ))}
               </tbody>
             </table>

@@ -5,7 +5,8 @@ const app=express()
 
 //default middleware
 app.use(cors({
-    origin:"https://xubitar-pre-order-manager.vercel.app",
+    // origin:"https://xubitar-pre-order-manager.vercel.app",
+    origin:"http://localhost:3000",
     credentials:true
 }))
 app.use(express.json())
